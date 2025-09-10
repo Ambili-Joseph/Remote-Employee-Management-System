@@ -8,7 +8,7 @@ use App\Http\Controllers\Api\DepartmentController;
 Route::post('/auth/register', [AuthController::class, 'register']);
 Route::post('/auth/login', [AuthController::class, 'login']);
 
-Route::middleware('auth:sanctum')->group(function () {
+// Route::middleware('auth:sanctum')->group(function () {
     Route::post('/auth/logout', [AuthController::class, 'logout']);
 
     Route::apiResource('employees', EmployeeController::class);
@@ -19,5 +19,6 @@ Route::middleware('auth:sanctum')->group(function () {
     
 
     Route::post('/employees/import', [EmployeeController::class, 'import']);
-    Route::get('/employees/export', [EmployeeController::class, 'export']);
-});
+    // Route::get('/employees/export', [EmployeeController::class, 'export']);
+    Route::get('employees/export', [EmployeeController::class, 'export']);
+// });
